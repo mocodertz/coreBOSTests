@@ -284,9 +284,12 @@ class testutils extends TestCase {
 		$this->assertFalse(isValueInPicklist('NOTInService', 'assetstatus'), 'isValueInPicklist 1');
 	}
 	
-	public function testgetProfile2FieldPermissionList() {
-		//TEST FOR cbtranslation MODULE
-		$expected = array(
+	/**
+	 * Method getProfile2FieldPermissionList
+	 * params
+	 */
+	public function getProfile2FieldPermissionListProvider() {
+		$expected_cbtranslation_fields = array(
 			array('cbtranslation No', '0', '4', '0', '833', '1', 'V~M'),
 			array('Locale', '0', '32', '0', '834', '1', 'V~M'),
 			array('Module', '0', '1614', '0', '835', '1', 'V~M'),
@@ -301,39 +304,7 @@ class testutils extends TestCase {
 			array('Modified Time', '0', '70', '0', '844', '2', 'T~O'),
 			array('Created By', '0', '52', '0', '845', '2', 'V~O'),
 		);
-		$fld_module = 'cbtranslation';
-		$profileid = getUserProfile(1);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on cbtranslation Module and User admin');
-		$profileid = getUserProfile(5);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on cbtranslation Module and User testdmy');
-		$profileid = getUserProfile(6);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on cbtranslation Module and User testmdy');
-		$profileid = getUserProfile(7);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on cbtranslation Module and User testymd');
-		$profileid = getUserProfile(8);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on cbtranslation Module and User testes');
-		$profileid = getUserProfile(9);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on cbtranslation Module and User testinactive');
-		$profileid = getUserProfile(10);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on cbtranslation Module and User testtz');
-		$profileid = getUserProfile(11);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on cbtranslation Module and User NoCreate');
-		$profileid = getUserProfile(12);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on cbtranslation Module and User testmcurrency');
-		$profileid = getUserProfile(13);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on cbtranslation Module and User testtz-3');
-		//TEST FOR Accounts MODULE
-		$expected = array(
+		$expected_account_fields = array(
 			array('Account Name', '0', '2', '0', '1', '1', 'V~M'),
 			array('Account No', '0', '4', '0', '2', '1', 'V~O'),
 			array('Phone', '0', '11', '0', '3', '1', 'V~O'),
@@ -390,39 +361,7 @@ class testutils extends TestCase {
 			array('Converted From Lead', '0', '10', '0', '753', '3', 'V~O'),
 			array('Created By', '0', '52', '0', '764', '2', 'V~O'), 
 		);
-		$fld_module = 'Accounts';
-		$profileid = getUserProfile(1);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Accounts Module and User admin');
-		$profileid = getUserProfile(5);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Accounts Module and User testdmy');
-		$profileid = getUserProfile(6);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Accounts Module and User testmdy');
-		$profileid = getUserProfile(7);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Accounts Module and User testymd');
-		$profileid = getUserProfile(8);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Accounts Module and User testes');
-		$profileid = getUserProfile(9);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Accounts Module and User testinactive');
-		$profileid = getUserProfile(10);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Accounts Module and User testtz');
-		$profileid = getUserProfile(11);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Accounts Module and User NoCreate');
-		$profileid = getUserProfile(12);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Accounts Module and User testmcurrency');
-		$profileid = getUserProfile(13);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Accounts Module and User testtz-3');
-		//TEST FOR Contacts MODULE
-		$expected = array(
+		$expected_contacts_fields = array(
 			array('Salutation', '0', '55', '0', '66', '3', 'V~O'),
 			array('First Name', '0', '55', '0', '67', '1', 'V~O'),
 			array('Contact Id', '0', '4', '0', '68', '1', 'V~O'),
@@ -472,36 +411,35 @@ class testutils extends TestCase {
 			array('Converted From Lead', '0', '10', '0', '755', '3', 'V~O'),
 			array('Created By', '0', '52', '0', '763', '2', 'V~O'),
 		);
-		$fld_module = 'Contacts';
-		$profileid = getUserProfile(1);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Contacts Module and User admin');
-		$profileid = getUserProfile(5);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Contacts Module and User testdmy');
-		$profileid = getUserProfile(6);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Contacts Module and User testmdy');
-		$profileid = getUserProfile(7);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Contacts Module and User testymd');
-		$profileid = getUserProfile(8);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Contacts Module and User testes');
-		$profileid = getUserProfile(9);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Contacts Module and User testinactive');
-		$profileid = getUserProfile(10);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Contacts Module and User testtz');
-		$profileid = getUserProfile(11);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Contacts Module and User NoCreate');
-		$profileid = getUserProfile(12);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Contacts Module and User testmcurrency');
-		$profileid = getUserProfile(13);
-		$actual = getProfile2FieldPermissionList($fld_module, $profileid[0]);
-		$this->assertEquals($expected, $actual, 'Test getProfile2FieldPermissionList Method on Contacts Module and User testtz-3');
+		return array(
+			array('cbtranslation', '1', $expected_cbtranslation_fields),
+			array('cbtranslation', '2', $expected_cbtranslation_fields),
+			array('cbtranslation', '3', $expected_cbtranslation_fields),
+			array('cbtranslation', '4', $expected_cbtranslation_fields),
+			array('cbtranslation', '5', $expected_cbtranslation_fields),
+			array('cbtranslation', '6', $expected_cbtranslation_fields),
+			array('Accounts', '1', $expected_account_fields),
+			array('Accounts', '2', $expected_account_fields),
+			array('Accounts', '3', $expected_account_fields),
+			array('Accounts', '4', $expected_account_fields),
+			array('Accounts', '5', $expected_account_fields),
+			array('Accounts', '6', $expected_account_fields),
+			array('Contacts', '1', $expected_contacts_fields),
+			array('Contacts', '2', $expected_contacts_fields),
+			array('Contacts', '3', $expected_contacts_fields),
+			array('Contacts', '4', $expected_contacts_fields),
+			array('Contacts', '5', $expected_contacts_fields),
+			array('Contacts', '6', $expected_contacts_fields)
+		);
+	}
+
+	/**
+	 * Method testgetProfile2FieldPermissionList
+	 * @test
+	 * @dataProvider getProfile2FieldPermissionListProvider
+	 */
+	public function testgetProfile2FieldPermissionList($module, $profileid, $expected) {
+		$actual = getProfile2FieldPermissionList($module, $profileid);
+		$this->assertEquals($expected, $actual, "Test getProfile2FieldPermissionList Method on $module Module and Profileid $profileid");
 	}
 }
